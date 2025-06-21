@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: FileService
+  web:
+    resources:
+      static-locations: file:E:\\MyFileServer\\static
+  mvc:
+    static-path-pattern: /static/**
+    contentnegotiation:
+      media-types:
+        jpg: image/jpeg
+  servlet:
+    multipart:
+      enabled: true               # 启用文件上传
+      max-file-size: 10MB         # 单个文件最大大小
+      max-request-size: 100MB     # 单次请求最大大小
+      file-size-threshold: 2MB    # 内存临时阈值（超过则写入磁盘）
+      location: ${java.io.tmpdir} # 临时文件存储位置
+server:
+  port: 8080
+file:
+  path: E:\MyFileServer
